@@ -30,6 +30,9 @@ class Database():
         except Exception as err:
             print(err)
 
+        finally:
+            self.close_connection()
+
     def select_client(self):
         self.connect()
         try:
@@ -41,6 +44,9 @@ class Database():
         except Exception as err:
             print(err)
 
+        finally:
+            self.close_connection()
+
     def select_client_by_id(self,id):
         self.connect()
         try:
@@ -50,6 +56,9 @@ class Database():
 
         except Exception as err:
             print(err)
+
+        finally:
+            self.close_connection()
 
     def update_client(self,id):
         self.connect()
@@ -85,6 +94,9 @@ class Database():
         except Exception as err:
             print(err)
 
+        finally:
+            self.close_connection()
+
     def delete_client(self,id):
         self.connect()
         try:
@@ -95,6 +107,9 @@ class Database():
         except Exception as err:
             print(err)
 
+        finally:
+            self.close_connection()
+
     def close_connection(self):
         if self.conn.is_connected():
             self.cursor.close()
@@ -103,9 +118,9 @@ class Database():
 
 if __name__ == '__main__':
     db = Database()
-    """ db.insert_client() """
+    """ db.insert_client()
     db.select_client()
     db.select_client_by_id(3)
-    """ db.delete_client(3) """
+    db.delete_client(3)
     db.update_client(4)
-    db.close_connection()
+    db.close_connection() """
